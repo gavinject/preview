@@ -1,0 +1,1 @@
+import{b as e,ae as s,g as a}from"./D6bnF-Q7.js";import{a as o}from"./fHo-iUYL.js";let t=s(!1);function l(){return{get isHidden(){return a(t)},setHidden(r){e(t,o(r))},hide(){e(t,!0)},show(){e(t,!1)}}}let i=s(!1);function f(){return{get isVisible(){return a(i)},show(){e(i,!0)},hide(){e(i,!1)}}}export{f as a,l as g};
