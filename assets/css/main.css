@@ -2074,21 +2074,6 @@ input, select, textarea {
 					background-image: url("images/dark-arrow.svg");
 				}
 
-		/* 
-		 * Mobile Parallax Effect:
-		 * Enable parallax scrolling effect on mobile devices.
-		 * The background images stay fixed while content scrolls over them.
-		 */
-		@media screen and (max-width: 736px) {
-			.main {
-				/* Enable hardware acceleration for better performance on mobile */
-				-webkit-transform: translate3d(0, 0, 0);
-				transform: translate3d(0, 0, 0);
-				/* Use will-change to hint the browser to optimize for smooth scrolling */
-				will-change: transform;
-			}
-		}
-
 		@media screen and (max-width: 1920px) {
 
 			.main.style2 .content {
@@ -2257,17 +2242,6 @@ input, select, textarea {
 		background-position: top left, bottom center;
 		background-repeat: repeat, no-repeat;
 	}
-	
-	/* Mobile optimization for parallax effect */
-	@media screen and (max-width: 736px) {
-		#intro {
-			/* Enable hardware acceleration for smoother parallax on mobile */
-			-webkit-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
-			/* Optimize background positioning for mobile */
-			background-position: top left, center center;
-		}
-	}
 
 /* One */
 
@@ -2276,15 +2250,6 @@ input, select, textarea {
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
-	}
-	
-	/* Mobile optimization for parallax effect */
-	@media screen and (max-width: 736px) {
-		#one {
-			/* Enable hardware acceleration for smoother parallax on mobile */
-			-webkit-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
-		}
 	}
 
 /* Two */
@@ -2295,15 +2260,43 @@ input, select, textarea {
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
 	}
-	
-	/* Mobile optimization for parallax effect */
-	@media screen and (max-width: 736px) {
-		#two {
-			/* Enable hardware acceleration for smoother parallax on mobile */
-			-webkit-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
-		}
+
+/*
+ * Mobile Parallax Fix
+ * iOS Safari and some mobile browsers don't support background-attachment: fixed.
+ * This CSS works with mobile-parallax.js to provide a true parallax effect on mobile.
+ * The JavaScript creates a fixed background container that shows the appropriate
+ * background image based on which section is currently in view.
+ */
+@media screen and (max-width: 736px) {
+	/* Ensure sections can have transparent backgrounds when JS takes over */
+	#intro,
+	#one,
+	#two {
+		/* Background is controlled by JavaScript on mobile */
+		/* Original backgrounds are hidden and replaced with fixed positioned layers */
 	}
+
+	/* Ensure the parallax background container is properly layered */
+	#parallax-bg-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	#parallax-bg-container .parallax-bg-layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		will-change: opacity;
+	}
+}
 
 /* Contact */
 
