@@ -181,7 +181,7 @@
 
 			// Changed the breakpoint here: only disable transitions for xsmall and smaller,
 			// so "small" devices will keep scrollex/section transitions active.
-			breakpoints.on('<=xsmall', off);
+			breakpoints.on('<=xsmall', on);
 			breakpoints.on('>xsmall', on);
 
 		}
@@ -219,3 +219,4 @@
 			});
 
 })(jQuery);
+
