@@ -88,12 +88,13 @@
 				'left: 0',
 				'width: 100%',
 				'height: 100%',
-				'opacity: 0',
+				'visibility: hidden',
 				'background-image: url("' + config.overlay + '"), url("' + config.image + '")',
 				'background-size: 256px 256px, cover',
 				'background-position: top left, ' + config.position,
 				'background-repeat: repeat, no-repeat',
-				'border: solid 2px rgba(255,255,255,0.35)'
+				'border: solid 2px rgba(255,255,255,0.35)',
+				'box-sizing: border-box'
 			].join(';');
 
 			container.appendChild(layer);
@@ -109,6 +110,8 @@
 
 	/**
 	 * Update which background layer is visible based on scroll position
+	 * Uses visibility:hidden/visible for instant transitions (matching desktop behavior)
+	 * instead of opacity which causes slow fades on iOS
 	 */
 	function updateVisibleBackground(sectionId) {
 		if (currentVisibleSection === sectionId) return;
@@ -117,9 +120,9 @@
 
 		parallaxElements.forEach(function(item) {
 			if (item.sectionId === sectionId) {
-				item.element.style.opacity = '1';
+				item.element.style.visibility = 'visible';
 			} else {
-				item.element.style.opacity = '0';
+				item.element.style.visibility = 'hidden';
 			}
 		});
 	}
