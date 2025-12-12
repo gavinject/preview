@@ -126,7 +126,9 @@
 
 	/**
 	 * Set up IntersectionObserver to track which section is in view
-	 * Uses a single threshold to prevent repeated triggering and strobing
+	 * Uses a single threshold to prevent repeated triggering and strobing.
+	 * The rootMargin creates a narrow "active zone" in the center of the viewport,
+	 * so only one section should typically be intersecting at a time.
 	 */
 	function setupIntersectionObserver() {
 		var options = {
@@ -136,11 +138,18 @@
 		};
 
 		var observer = new IntersectionObserver(function(entries) {
+			// Find the entry that is intersecting (should typically be only one
+			// due to the narrow rootMargin)
+			var intersectingEntry = null;
 			entries.forEach(function(entry) {
 				if (entry.isIntersecting) {
-					updateVisibleBackground(entry.target.id);
+					intersectingEntry = entry;
 				}
 			});
+			
+			if (intersectingEntry) {
+				updateVisibleBackground(intersectingEntry.target.id);
+			}
 		}, options);
 
 		// Observe each parallax section
