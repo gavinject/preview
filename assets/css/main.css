@@ -2136,10 +2136,6 @@ input, select, textarea {
 					width: 100%;
 					max-width: 100%;
 					text-align: center;
-					-moz-transform: none;
-					-webkit-transform: none;
-					-ms-transform: none;
-					transform: none;
 				}
 
 			.main.style3 {
