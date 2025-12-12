@@ -2393,23 +2393,26 @@ input, select, textarea {
 }
 /* --- ANIMATION STABILITY FIXES --- */
 @media screen and (max-width: 736px) {
-    /* 1. Force all hidden sections to be visible immediately */
-    .main.style1.inactive > .content,
-    .main.style2.inactive.left > .content,
-    .main.style2.inactive.right > .content,
-    .gallery.inactive article,
-    #contact.inactive .box {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
+    /* Allow animations to work on mobile by not forcing them to be visible */
+    /* The scrollex library will handle showing/hiding content properly */
+    
+    /* Reduce transform distances for mobile to prevent horizontal scrolling */
+    .gallery.inactive article.from-left,
+    .gallery.inactive article.from-right {
+        transform: translateX(0) !important;
     }
-
-    /* 2. Disable Gallery sliding effects to prevent horizontal scrolling */
-    .gallery article.from-left,
-    .gallery article.from-right,
-    .gallery article.from-top,
-    .gallery article.from-bottom {
-        transform: none !important;
-        opacity: 1 !important;
+    
+    .gallery.inactive article.from-top,
+    .gallery.inactive article.from-bottom {
+        transform: translateY(0) !important;
+    }
+    
+    /* Keep lateral slide animations disabled for style2 sections to prevent layout issues */
+    .main.style2.inactive.left > .content {
+        transform: translateX(0) !important;
+    }
+    
+    .main.style2.inactive.right > .content {
+        transform: translateX(0) !important;
     }
 }
