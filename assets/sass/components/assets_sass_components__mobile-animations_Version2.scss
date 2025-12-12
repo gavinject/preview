@@ -1,0 +1,11 @@
+@media (max-width: 736px) {
+  /* When body has .enable-mobile-animations, allow animations/transitions on small viewports. */
+  body.enable-mobile-animations {
+    *, *:before, *:after {
+      /* Use 'initial' so we don't fight !important rules in other places;
+         if you find rules still override, change to 'unset' or use !important. */
+      @include vendor('animation', 'initial !important');
+      @include vendor('transition', 'initial !important');
+    }
+  }
+}
