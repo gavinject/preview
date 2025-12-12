@@ -2294,7 +2294,8 @@ input, select, textarea {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		will-change: opacity;
+		border: solid 2px rgba(255,255,255,0.35);
+		box-sizing: border-box;
 	}
 }
 
