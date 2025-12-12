@@ -2261,6 +2261,52 @@ input, select, textarea {
 		background-position: top left, center center;
 	}
 
+/* Subtle opacity transition between first three parallax sections (desktop) */
+	#intro,
+	#one,
+	#two {
+		position: relative;
+	}
+
+	#intro::after,
+	#one::after,
+	#two::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0);
+		-moz-transition: background 0.6s ease-in-out;
+		-webkit-transition: background 0.6s ease-in-out;
+		-ms-transition: background 0.6s ease-in-out;
+		transition: background 0.6s ease-in-out;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	#intro.inactive::after,
+	#one.inactive::after,
+	#two.inactive::after {
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	/* Ensure content stays above the overlay */
+	#intro > .content,
+	#one > .content,
+	#two > .content {
+		position: relative;
+		z-index: 1;
+	}
+
+	#intro > footer,
+	#one > .button,
+	#two > .button {
+		position: relative;
+		z-index: 1;
+	}
+
 /*
  * Mobile Parallax Fix
  * iOS Safari and some mobile browsers don't support background-attachment: fixed.
@@ -2275,6 +2321,13 @@ input, select, textarea {
 	#two {
 		/* Background is controlled by JavaScript on mobile */
 		/* Original backgrounds are hidden and replaced with fixed positioned layers */
+	}
+
+	/* Disable desktop overlay effect on mobile - mobile uses JS-based crossfade instead */
+	#intro::after,
+	#one::after,
+	#two::after {
+		display: none;
 	}
 
 	/* Ensure the parallax background container is properly layered */
@@ -2296,6 +2349,10 @@ input, select, textarea {
 		height: 100%;
 		border: solid 2px rgba(255,255,255,0.35);
 		box-sizing: border-box;
+		-moz-transition: opacity 0.6s ease-in-out;
+		-webkit-transition: opacity 0.6s ease-in-out;
+		-ms-transition: opacity 0.6s ease-in-out;
+		transition: opacity 0.6s ease-in-out;
 	}
 }
 
