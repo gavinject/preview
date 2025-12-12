@@ -2075,30 +2075,17 @@ input, select, textarea {
 				}
 
 		/* 
-		 * Mobile Parallax Optimization:
-		 * Modern mobile browsers (iOS 13+, Android Chrome 90+) support background-attachment: fixed
-		 * reasonably well. We keep the parallax effect enabled but with optimizations for mobile.
-		 * 
-		 * Note: Older mobile browsers may show the background as scrolling, which is an acceptable
-		 * graceful degradation for devices that cannot support the parallax effect.
+		 * Mobile Parallax Effect:
+		 * Enable parallax scrolling effect on mobile devices.
+		 * The background images stay fixed while content scrolls over them.
 		 */
 		@media screen and (max-width: 736px) {
-			body.is-touch .main {
+			.main {
 				/* Enable hardware acceleration for better performance on mobile */
 				-webkit-transform: translate3d(0, 0, 0);
 				transform: translate3d(0, 0, 0);
 				/* Use will-change to hint the browser to optimize for smooth scrolling */
 				will-change: transform;
-				/* Keep parallax effect enabled on mobile */
-				background-attachment: fixed !important;
-				background-size: cover;
-			}
-		}
-		
-		/* For very old mobile devices (if needed for compatibility), fallback to scroll */
-		@supports not (background-attachment: fixed) {
-			body.is-touch .main {
-				background-attachment: scroll !important;
 			}
 		}
 
