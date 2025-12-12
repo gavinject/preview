@@ -6,6 +6,51 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+			/* Applies to screens smaller than 980px (Mobile + Tablet) */
+			@media screen and (max-width: 980px) {
+				
+				/* 1. FORCE VISIBILITY (Fixes "animations don't pop up")
+				   This overrides the javascript scroll triggers so content 
+				   is always visible on small screens. */
+				.from-left, .from-right, 
+				article, section, 
+				.is-preload * {
+					opacity: 1 !important;
+					transform: none !important;
+					transition: none !important;
+					visibility: visible !important;
+				}
+
+				/* 2. FIX FULLSCREEN HEIGHTS (Fixes "screen too small")
+				   On mobile, '100vh' cuts off text. This allows the sections
+				   to grow as tall as they need to be to fit your text. */
+				.main.fullscreen {
+					height: auto !important;
+					min-height: 100vh !important;
+					padding-top: 6em !important;
+					padding-bottom: 6em !important;
+				}
+
+				/* 3. INTRO SECTION FIX
+				   Ensures the intro covers the whole screen but allows scrolling. */
+				#intro {
+					height: auto !important;
+					min-height: 100vh !important;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+				}
+
+				/* 4. CONTENT BOX WIDTH 
+				   Gives the text boxes a bit more breathing room on the sides. */
+				.content.box {
+					width: 90% !important;
+					max-width: none !important;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -140,5 +185,3 @@
 	</body>
 
 </html>
-
-
