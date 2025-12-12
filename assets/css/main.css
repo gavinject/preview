@@ -2084,20 +2084,13 @@ input, select, textarea {
 		 */
 		@media screen and (max-width: 736px) {
 			body.is-touch .main {
-				/* Use will-change to hint the browser to optimize for smooth scrolling */
-				will-change: transform;
 				/* Enable hardware acceleration for better performance on mobile */
 				-webkit-transform: translateZ(0);
-				-moz-transform: translateZ(0);
-				-ms-transform: translateZ(0);
 				transform: translateZ(0);
-			}
-			
-			/* Ensure backgrounds are optimized for mobile rendering */
-			body.is-touch .main {
+				/* Use will-change to hint the browser to optimize for smooth scrolling */
+				will-change: transform;
+				/* Keep parallax effect enabled on mobile */
 				background-attachment: fixed !important;
-				/* Optimize background rendering on mobile */
-				-webkit-background-size: cover;
 				background-size: cover;
 			}
 		}
@@ -2283,8 +2276,6 @@ input, select, textarea {
 		#intro {
 			/* Enable hardware acceleration for smoother parallax on mobile */
 			-webkit-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
 			/* Optimize background positioning for mobile */
 			background-position: top left, center center;
@@ -2305,8 +2296,6 @@ input, select, textarea {
 		#one {
 			/* Enable hardware acceleration for smoother parallax on mobile */
 			-webkit-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
 		}
 	}
@@ -2325,8 +2314,6 @@ input, select, textarea {
 		#two {
 			/* Enable hardware acceleration for smoother parallax on mobile */
 			-webkit-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
 		}
 	}
