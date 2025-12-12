@@ -2391,28 +2391,3 @@ input, select, textarea {
         padding-left: 0 !important;
     }
 }
-/* --- ANIMATION STABILITY FIXES --- */
-@media screen and (max-width: 736px) {
-    /* Allow animations to work on mobile by not forcing them to be visible */
-    /* The scrollex library will handle showing/hiding content properly */
-    
-    /* Reduce transform distances for mobile to prevent horizontal scrolling */
-    .gallery.inactive article.from-left,
-    .gallery.inactive article.from-right {
-        transform: translateX(0) !important;
-    }
-    
-    .gallery.inactive article.from-top,
-    .gallery.inactive article.from-bottom {
-        transform: translateY(0) !important;
-    }
-    
-    /* Keep lateral slide animations disabled for style2 sections to prevent layout issues */
-    .main.style2.inactive.left > .content {
-        transform: translateX(0) !important;
-    }
-    
-    .main.style2.inactive.right > .content {
-        transform: translateX(0) !important;
-    }
-}
