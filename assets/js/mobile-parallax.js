@@ -89,12 +89,11 @@
 				'width: 100%',
 				'height: 100%',
 				'opacity: 0',
-				'transition: opacity 0.3s ease-out',
 				'background-image: url("' + config.overlay + '"), url("' + config.image + '")',
 				'background-size: 256px 256px, cover',
 				'background-position: top left, ' + config.position,
 				'background-repeat: repeat, no-repeat',
-				'will-change: opacity'
+				'border: solid 2px rgba(255,255,255,0.35)'
 			].join(';');
 
 			container.appendChild(layer);
@@ -127,27 +126,29 @@
 
 	/**
 	 * Set up IntersectionObserver to track which section is in view
+	 * Uses a single threshold to prevent repeated triggering and strobing.
+	 * The rootMargin creates a narrow "active zone" in the center of the viewport,
+	 * so only one section should typically be intersecting at a time.
 	 */
 	function setupIntersectionObserver() {
 		var options = {
 			root: null,
-			rootMargin: '-30% 0px -30% 0px',
-			threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+			rootMargin: '-40% 0px -40% 0px',
+			threshold: 0
 		};
 
 		var observer = new IntersectionObserver(function(entries) {
-			var mostVisibleEntry = null;
-			var maxRatio = 0;
-
+			// Find the entry that is intersecting (should typically be only one
+			// due to the narrow rootMargin)
+			var intersectingEntry = null;
 			entries.forEach(function(entry) {
-				if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-					maxRatio = entry.intersectionRatio;
-					mostVisibleEntry = entry;
+				if (entry.isIntersecting) {
+					intersectingEntry = entry;
 				}
 			});
-
-			if (mostVisibleEntry) {
-				updateVisibleBackground(mostVisibleEntry.target.id);
+			
+			if (intersectingEntry) {
+				updateVisibleBackground(intersectingEntry.target.id);
 			}
 		}, options);
 
