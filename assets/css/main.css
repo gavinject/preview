@@ -2085,8 +2085,8 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 			body.is-touch .main {
 				/* Enable hardware acceleration for better performance on mobile */
-				-webkit-transform: translateZ(0);
-				transform: translateZ(0);
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
 				/* Use will-change to hint the browser to optimize for smooth scrolling */
 				will-change: transform;
 				/* Keep parallax effect enabled on mobile */
