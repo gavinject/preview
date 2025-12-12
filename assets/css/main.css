@@ -2350,3 +2350,66 @@ input, select, textarea {
         padding: 4em 20px !important; /* Add breathing room */
     }
 }
+/* 2. Restore Fullscreen Feel */
+@media screen and (max-width: 736px) {
+    .main.fullscreen {
+        height: auto !important; /* Keep auto to prevent cutting off text */
+        min-height: 100vh; /* Ensure it fills the screen at minimum */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    /* Fix text container width */
+    .main.style2 .content {
+        width: 90% !important; /* Widen text box on mobile */
+        max-width: 600px;
+        margin: 0 auto;
+        transform: none !important; /* Disable offset animations that break layout */
+        opacity: 1 !important; /* Ensure content is always visible */
+    }
+}
+/* 3. Text & Layout Tweaks */
+@media screen and (max-width: 480px) {
+    /* Reduce massive heading sizes */
+    .main.style1 h2 {
+        font-size: 2.5em !important; 
+    }
+    
+    /* Add spacing to the gallery stack */
+    .gallery article {
+        margin-bottom: 2px;
+    }
+    
+    /* Ensure form fields don't overflow */
+    form > .fields {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    form > .fields > .field {
+        padding-left: 0 !important;
+    }
+}
+/* --- ANIMATION STABILITY FIXES --- */
+@media screen and (max-width: 736px) {
+    /* 1. Force all hidden sections to be visible immediately */
+    .main.style1.inactive > .content,
+    .main.style2.inactive.left > .content,
+    .main.style2.inactive.right > .content,
+    .gallery.inactive article,
+    #contact.inactive .box {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* 2. Disable Gallery sliding effects to prevent horizontal scrolling */
+    .gallery article.from-left,
+    .gallery article.from-right,
+    .gallery article.from-top,
+    .gallery article.from-bottom {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
