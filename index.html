@@ -6,62 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
-		<style>
-			/* --- GROUND ZERO MOBILE FIXES --- */
-			@media screen and (max-width: 980px) {
-
-				/* 1. RESTORE DESKTOP "FULL SCREEN" FEEL
-				   Force every section to be at least the height of the phone screen. */
-				.main.fullscreen {
-					min-height: 100vh !important;
-					height: auto !important; /* Allow it to grow if text is long */
-					display: flex !important;
-					flex-direction: column;
-					justify-content: center;
-					padding: 40px 20px !important;
-				}
-
-				/* 2. CENTER THE CONTENT BOXES
-				   Mimics the desktop layout but scaled for phone width. */
-				.content.box {
-					width: 100% !important;
-					max-width: 500px !important;
-					margin: 0 auto !important;
-					padding: 2em !important;
-				}
-
-				/* 3. FIX THE GALLERY (IMAGES) 
-				   Instead of floating left/right (which breaks on mobile),
-				   we stack them neatly and full-width. */
-				.gallery article {
-					width: 100% !important;
-					float: none !important;
-					margin-bottom: 20px;
-					opacity: 0; /* Hidden until scrolled to */
-				}
-				
-				.gallery article img {
-					width: 100%;
-					border-radius: 4px;
-				}
-
-				/* 4. DEFINE MOBILE ANIMATIONS 
-				   We override the side-slide animations because they cause 
-				   horizontal scrolling glitches on phones. We use a smooth "Fade Up". */
-				.from-left, .from-right {
-					opacity: 0;
-					transform: translateY(30px); /* Start slightly down */
-					transition: opacity 0.8s ease, transform 0.8s ease;
-				}
-
-				/* The class our script will add when visible */
-				.in-view {
-					opacity: 1 !important;
-					transform: translateY(0) !important;
-				}
-			}
-		</style>
 	</head>
 	<body class="is-preload">
 
@@ -91,7 +35,7 @@
 			</section>
 
 		<section id="one" class="main style2 right dark fullscreen">
-				<div class="content box style2 from-right">
+				<div class="content box style2">
 					<header>
 						<h2>What I Do</h2>
 					</header>
@@ -104,7 +48,7 @@
 			</section>
 
 		<section id="two" class="main style2 left dark fullscreen">
-				<div class="content box style2 from-left">
+				<div class="content box style2">
 					<header>
 						<h2>Who I Am</h2>
 					</header>
@@ -192,30 +136,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			
-			<script>
-				// Only run on small screens (Tablet/Mobile)
-				if (window.innerWidth <= 980) {
-					
-					// This watcher looks for elements entering the screen
-					const observer = new IntersectionObserver((entries) => {
-						entries.forEach(entry => {
-							// If the element is even slightly visible (10%)
-							if (entry.isIntersecting) {
-								// Add the 'in-view' class which triggers the CSS animation
-								entry.target.classList.add('in-view');
-							}
-						});
-					}, {
-						threshold: 0.1 // Trigger early so it feels responsive
-					});
-
-					// Tell the watcher to look at these elements
-					document.querySelectorAll('.from-left, .from-right').forEach((el) => {
-						observer.observe(el);
-					});
-				}
-			</script>
 
 	</body>
+
 </html>
+
+
