@@ -2074,8 +2074,39 @@ input, select, textarea {
 					background-image: url("images/dark-arrow.svg");
 				}
 
-		body.is-touch .main {
-			background-attachment: scroll !important;
+		/* 
+		 * Mobile Parallax Optimization:
+		 * Modern mobile browsers (iOS 13+, Android Chrome 90+) support background-attachment: fixed
+		 * reasonably well. We keep the parallax effect enabled but with optimizations for mobile.
+		 * 
+		 * Note: Older mobile browsers may show the background as scrolling, which is an acceptable
+		 * graceful degradation for devices that cannot support the parallax effect.
+		 */
+		@media screen and (max-width: 736px) {
+			body.is-touch .main {
+				/* Use will-change to hint the browser to optimize for smooth scrolling */
+				will-change: transform;
+				/* Enable hardware acceleration for better performance on mobile */
+				-webkit-transform: translateZ(0);
+				-moz-transform: translateZ(0);
+				-ms-transform: translateZ(0);
+				transform: translateZ(0);
+			}
+			
+			/* Ensure backgrounds are optimized for mobile rendering */
+			body.is-touch .main {
+				background-attachment: fixed !important;
+				/* Optimize background rendering on mobile */
+				-webkit-background-size: cover;
+				background-size: cover;
+			}
+		}
+		
+		/* For very old mobile devices (if needed for compatibility), fallback to scroll */
+		@supports not (background-attachment: fixed) {
+			body.is-touch .main {
+				background-attachment: scroll !important;
+			}
 		}
 
 		@media screen and (max-width: 1920px) {
@@ -2246,6 +2277,19 @@ input, select, textarea {
 		background-position: top left, bottom center;
 		background-repeat: repeat, no-repeat;
 	}
+	
+	/* Mobile optimization for parallax effect */
+	@media screen and (max-width: 736px) {
+		#intro {
+			/* Enable hardware acceleration for smoother parallax on mobile */
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			/* Optimize background positioning for mobile */
+			background-position: top left, center center;
+		}
+	}
 
 /* One */
 
@@ -2255,6 +2299,17 @@ input, select, textarea {
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
 	}
+	
+	/* Mobile optimization for parallax effect */
+	@media screen and (max-width: 736px) {
+		#one {
+			/* Enable hardware acceleration for smoother parallax on mobile */
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+	}
 
 /* Two */
 
@@ -2263,6 +2318,17 @@ input, select, textarea {
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
+	}
+	
+	/* Mobile optimization for parallax effect */
+	@media screen and (max-width: 736px) {
+		#two {
+			/* Enable hardware acceleration for smoother parallax on mobile */
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
 	}
 
 /* Contact */
