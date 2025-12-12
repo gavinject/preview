@@ -2310,3 +2310,43 @@ input, select, textarea {
 			}
 
 		}
+/* --- MOBILE OPTIMIZATION FIXES --- */
+
+/* 1. Restore and Style Mobile Navigation */
+@media screen and (max-width: 736px) {
+    #header nav {
+        display: block !important; /* Override the default 'none' */
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 2.5em;
+        line-height: 2.5em;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-y: hidden;
+        white-space: nowrap; /* Keep links in one line */
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    #header nav ul {
+        display: inline-block;
+        padding-right: 15px;
+    }
+
+    #header nav ul li {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    #header h1 {
+        display: none; /* Hide the logo text to make room for menu on small screens */
+    }
+    
+    /* Center the active content properly */
+    .main.style1, .main.style2 {
+        padding: 4em 20px !important; /* Add breathing room */
+    }
+}
