@@ -2,7 +2,12 @@
  * Mobile Parallax Effect
  * 
  * This script provides a true parallax scrolling effect on mobile devices where
- * CSS background-attachment: fixed is not supported (iOS Safari, etc.).
+ * CSS background-attachment: fixed is not reliably supported.
+ * 
+ * On small screens (<=736px), this script always activates because:
+ * - iOS Safari doesn't support background-attachment: fixed
+ * - Many Android browsers have issues with it
+ * - Using JS provides consistent behavior across all mobile devices
  * 
  * Uses IntersectionObserver for performance and requestAnimationFrame for smooth updates.
  * The background stays fixed while content scrolls over it, matching desktop behavior.
@@ -16,16 +21,15 @@
 		return window.innerWidth <= 736;
 	}
 
-	// Check if background-attachment: fixed is properly supported
-	function isFixedBackgroundSupported() {
-		// iOS Safari doesn't support background-attachment: fixed
-		var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-		var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-		
-		// Also check for other mobile browsers that have issues
-		var isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-		
-		return !(isIOS || (isMobileDevice && isSafari));
+	// Check if we should use the JS-based parallax instead of CSS background-attachment: fixed
+	// On mobile devices, background-attachment: fixed is unreliable or broken,
+	// so we always use the JS approach on small screens for consistent behavior.
+	function shouldUseMobileParallax() {
+		// Always use JS-based parallax on small screens because:
+		// 1. iOS Safari doesn't support background-attachment: fixed
+		// 2. Many Android browsers have issues with it
+		// 3. Performance is generally better with the JS approach on mobile
+		return isMobileOrSmallScreen();
 	}
 
 	// Parallax sections configuration
@@ -279,11 +283,11 @@
 	 * Handle resize events
 	 */
 	function handleResize() {
-		var shouldUseMobileParallax = isMobileOrSmallScreen() && !isFixedBackgroundSupported();
+		var useMobileParallax = shouldUseMobileParallax();
 		
-		if (shouldUseMobileParallax && !isInitialized) {
+		if (useMobileParallax && !isInitialized) {
 			initMobileParallax();
-		} else if (!shouldUseMobileParallax && isInitialized) {
+		} else if (!useMobileParallax && isInitialized) {
 			cleanupMobileParallax();
 		}
 	}
@@ -300,7 +304,7 @@
 	 */
 	function init() {
 		// Check if we need mobile parallax
-		if (isMobileOrSmallScreen() && !isFixedBackgroundSupported()) {
+		if (shouldUseMobileParallax()) {
 			initMobileParallax();
 		}
 
