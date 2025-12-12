@@ -123,10 +123,6 @@
 			}
 		}
 
-		body.is-touch & {
-			background-attachment: scroll !important;
-		}
-
 		@include breakpoint('<=xxlarge') {
 			&.style2 {
 				.content {
