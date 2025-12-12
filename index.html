@@ -8,46 +8,60 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
-			/* Applies to screens smaller than 980px (Mobile + Tablet) */
+			/* --- MOBILE DESKTOP-FEEL OVERRIDES --- */
 			@media screen and (max-width: 980px) {
 				
-				/* 1. FORCE VISIBILITY (Fixes "animations don't pop up")
-				   This overrides the javascript scroll triggers so content 
-				   is always visible on small screens. */
-				.from-left, .from-right, 
-				article, section, 
-				.is-preload * {
-					opacity: 1 !important;
-					transform: none !important;
-					transition: none !important;
-					visibility: visible !important;
+				/* 1. ENABLE SCROLL SNAP (The "Desktop Slide" Feel) */
+				html, body {
+					scroll-snap-type: y mandatory; /* Forces page to snap to sections */
+					scroll-behavior: smooth;
 				}
-
-				/* 2. FIX FULLSCREEN HEIGHTS (Fixes "screen too small")
-				   On mobile, '100vh' cuts off text. This allows the sections
-				   to grow as tall as they need to be to fit your text. */
-				.main.fullscreen {
-					height: auto !important;
-					min-height: 100vh !important;
-					padding-top: 6em !important;
-					padding-bottom: 6em !important;
-				}
-
-				/* 3. INTRO SECTION FIX
-				   Ensures the intro covers the whole screen but allows scrolling. */
-				#intro {
-					height: auto !important;
-					min-height: 100vh !important;
-					display: flex;
+				
+				/* Make sections snap to the top of the screen */
+				.main {
+					scroll-snap-align: start;
+					scroll-snap-stop: always;
+					min-height: 100vh; /* Force full screen height */
+					display: flex !important;
 					flex-direction: column;
-					justify-content: center;
+					justify-content: center; /* Center content vertically */
+					padding: 2em 1em !important; /* Reduce padding so it fits */
 				}
 
-				/* 4. CONTENT BOX WIDTH 
-				   Gives the text boxes a bit more breathing room on the sides. */
+				/* 2. SCALE DOWN TEXT (So it fits on one phone screen) */
+				h2 { font-size: 1.5em !important; margin-bottom: 0.5em !important; }
+				p { font-size: 0.9em !important; line-height: 1.4em !important; }
+				.button { font-size: 0.8em !important; }
+				
+				/* Adjust the content box width */
 				.content.box {
 					width: 90% !important;
-					max-width: none !important;
+					padding: 1.5em !important;
+				}
+
+				/* Fix Gallery Images on Mobile */
+				.gallery article {
+					width: 50% !important; /* show 2 images per row if possible, or 100% if preferred */
+					float: left;
+				}
+
+				/* 3. PREPARE ANIMATIONS */
+				/* We hide them initially so our script can slide them in */
+				.from-left {
+					opacity: 0;
+					transform: translateX(-30px);
+					transition: all 0.8s ease-out;
+				}
+				.from-right {
+					opacity: 0;
+					transform: translateX(30px);
+					transition: all 0.8s ease-out;
+				}
+				
+				/* The class our new script will add */
+				.mobile-animate-active {
+					opacity: 1 !important;
+					transform: translateX(0) !important;
 				}
 			}
 		</style>
@@ -67,7 +81,7 @@
 				</nav>
 			</header>
 
-		<section id="intro" class="main style1 dark fullscreen">
+		<section id="intro" class="main style1 dark fullscreen mobile-section">
 				<div class="content">
 					<header>
 						<h2>Welcome.</h2>
@@ -79,9 +93,8 @@
 				</div>
 			</section>
 
-		<section id="one" class="main style2 right dark fullscreen">
-				<div class="content box style2">
-					<header>
+		<section id="one" class="main style2 right dark fullscreen mobile-section">
+				<div class="content box style2 from-right"> <header>
 						<h2>What I Do</h2>
 					</header>
 					<p>I build websites for small businesses that don’t have time to deal with tech headaches.
@@ -92,9 +105,8 @@
 				<a href="#two" class="button style2 down anchored">Next</a>
 			</section>
 
-		<section id="two" class="main style2 left dark fullscreen">
-				<div class="content box style2">
-					<header>
+		<section id="two" class="main style2 left dark fullscreen mobile-section">
+				<div class="content box style2 from-left"> <header>
 						<h2>Who I Am</h2>
 					</header>
 					<p>I’m Gavin. I design and develop websites with a focus on clarity and function.
@@ -104,7 +116,7 @@
 				<a href="#work" class="button style2 down anchored">Next</a>
 			</section>
 
-		<section id="work" class="main style3 primary">
+		<section id="work" class="main style3 primary mobile-section">
 				<div class="content">
 					<header>
 						<h2>My Work</h2>
@@ -135,7 +147,7 @@
 				</div>
 			</section>
 
-		<section id="contact" class="main style3 secondary">
+		<section id="contact" class="main style3 secondary mobile-section">
 				<div class="content">
 					<header>
 						<h2>Say Hello.</h2>
@@ -181,7 +193,28 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script>
+				// This script runs only if the screen is small (mobile/tablet)
+				if (window.innerWidth <= 980) {
+					
+					// Use IntersectionObserver to detect when elements enter the screen
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								// Add the class that triggers the CSS animation
+								entry.target.classList.add('mobile-animate-active');
+							}
+						});
+					}, {
+						threshold: 0.1 // Trigger as soon as 10% of the element is visible
+					});
+
+					// Target all elements with animation classes
+					const hiddenElements = document.querySelectorAll('.from-left, .from-right');
+					hiddenElements.forEach((el) => observer.observe(el));
+				}
+			</script>
 
 	</body>
-
 </html>
