@@ -1,9 +1,3 @@
-/*
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	var	$window = $(window),
@@ -179,8 +173,10 @@
 
 			};
 
-			breakpoints.on('<=small', off);
-			breakpoints.on('>small', on);
+			// Changed the breakpoint here: only disable transitions for xsmall and smaller,
+			// so "small" devices will keep scrollex/section transitions active.
+			breakpoints.on('<=xsmall', off);
+			breakpoints.on('>xsmall', on);
 
 		}
 
