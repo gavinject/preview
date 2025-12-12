@@ -29,12 +29,7 @@
 		height: 100%;
 		min-width: 320px;
 
-		// Stops initial animations until page loads.
-			&.is-preload {
-				*, *:before, *:after {
-					@include vendor('animation', 'none !important');
-					@include vendor('transition', 'none !important');
-				}
+
 			}
 
 	}
@@ -156,4 +151,5 @@
 		body:before {
 			line-height: 2.025em;
 		}
+
 	}
