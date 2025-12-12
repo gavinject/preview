@@ -2361,8 +2361,6 @@ input, select, textarea {
         width: 90% !important; /* Widen text box on mobile */
         max-width: 600px;
         margin: 0 auto;
-        transform: none !important; /* Disable offset animations that break layout */
-        opacity: 1 !important; /* Ensure content is always visible */
     }
 }
 /* 3. Text & Layout Tweaks */
