@@ -2470,3 +2470,29 @@ input, select, textarea {
         padding-left: 0 !important;
     }
 }
+
+/* 4. Fix Contact Form Placeholder Visibility */
+#contact ::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#contact :-moz-placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#contact ::-moz-placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#contact :-ms-input-placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#contact ::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
