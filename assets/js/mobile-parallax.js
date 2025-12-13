@@ -1,18 +1,3 @@
-/**
- * Mobile Parallax Effect
- * 
- * This script provides a true parallax scrolling effect on mobile devices where
- * CSS background-attachment: fixed is not reliably supported.
- * 
- * On small screens (<=736px), this script always activates because:
- * - iOS Safari doesn't support background-attachment: fixed
- * - Many Android browsers have issues with it
- * - Using JS provides consistent behavior across all mobile devices
- * 
- * Uses IntersectionObserver for performance and requestAnimationFrame for smooth updates.
- * The background stays fixed while content scrolls over it, matching desktop behavior.
- */
-
 (function() {
 	'use strict';
 
