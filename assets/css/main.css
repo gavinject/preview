@@ -2057,11 +2057,11 @@ input, select, textarea {
 			}
 
 				.main.dark .button.style2:hover {
-					background-color: rgba(26, 26, 30, 0.125);
+					background-color: rgba(255, 255, 255, 0.125);
 				}
 
 				.main.dark .button.style2:active {
-					background-color: rgba(26, 26, 30, 0.25);
+					background-color: rgba(255, 255, 255, 0.25);
 				}
 
 				.main.dark .button.style2.down {
