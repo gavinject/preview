@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -103,17 +104,26 @@
 						<h2>Say Hello.</h2>
 						<p>let’s talk about your project</p>
 					</header>
-					<div class="box">
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
-								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
-							</div>
-							<ul class="actions special">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>
-						</form>
+					<div class="contact-wrapper" style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: flex-start;">
+						<div class="box" style="flex: 1; min-width: 300px;">
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
+									<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+								</div>
+								<ul class="actions special">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</div>
+						<div class="stripe-button-wrapper" style="display: flex; align-items: center; justify-content: center; min-width: 200px;">
+							<stripe-buy-button
+								buy-button-id="buy_btn_1SeAkPQn3BnSHEyKIkujcIRw"
+								publishable-key="pk_live_51Se0LOQn3BnSHEyKBpZg3qZztRIqWcObZPIA6eeDyAoLhn8gY0dFgjmDMajQeHqTmo9DQpjhYti9lpk9viIUd5D100DIW0WYem"
+							>
+							</stripe-buy-button>
+						</div>
 					</div>
 				</div>
 			</section>
