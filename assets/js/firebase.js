@@ -74,15 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
           timestamp: Date.now()
         });
         
-        // Success - reset form and show success message
+        // Success - reset form and show popup
         contactForm.reset();
-        submitButton.value = 'Message Sent!';
         
-        // Reset button text after 3 seconds
-        setTimeout(() => {
-          submitButton.value = originalValue;
-          submitButton.disabled = false;
-        }, 3000);
+        // Show the "sent" popup with fade in/out
+        const popup = document.getElementById('sent-popup');
+        if (popup) {
+          popup.classList.add('show');
+          setTimeout(() => {
+            popup.classList.remove('show');
+          }, 2000);
+        }
+        
+        // Re-enable button
+        submitButton.value = originalValue;
+        submitButton.disabled = false;
         
       } catch (error) {
         console.error('Error submitting form:', error);

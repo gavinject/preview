@@ -110,7 +110,7 @@
 						<p>let’s talk about your project</p>
 					</header>
 					<div class="contact-wrapper" style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: flex-start;">
-						<div class="box" style="flex: 1; min-width: 300px;">
+						<div class="box" style="flex: 1; min-width: 300px; position: relative;">
 							<form id="contact-form" method="post" action="#">
 								<div class="fields">
 									<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
@@ -121,7 +121,31 @@
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
+							<div id="sent-popup" class="sent-popup">sent</div>
 						</div>
+<style>
+.sent-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(90, 135, 203, 0.95);
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+.sent-popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+</style>
 						<div class="stripe-button-wrapper" style="display: flex; align-items: center; justify-content: center; min-width: 200px;">
 							<stripe-buy-button
 								buy-button-id="buy_btn_1SeAkPQn3BnSHEyKIkujcIRw"
