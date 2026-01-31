@@ -1,8 +1,9 @@
 // Firebase configuration and form handling
-// Note: Ensure Firestore security rules are configured to protect the 'contacts' collection
+// Note: Ensure Realtime Database security rules are configured to protect the 'contacts' path
 const firebaseConfig = {
   apiKey: "AIzaSyBeoa1fyu3sDPDNa0G4z_TiJEdTKDxiOcU",
   authDomain: "fart-bf39f.firebaseapp.com",
+  databaseURL: "https://fart-bf39f-default-rtdb.firebaseio.com",
   projectId: "fart-bf39f",
   storageBucket: "fart-bf39f.firebasestorage.app",
   messagingSenderId: "64630883432",
@@ -13,8 +14,8 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Initialize Firestore
-const db = firebase.firestore();
+// Initialize Realtime Database
+const db = firebase.database();
 
 // Initialize Analytics (optional)
 if (typeof firebase.analytics === 'function') {
@@ -65,23 +66,29 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.value = 'Sending...';
       
       try {
-        // Add document to Firestore
-        await db.collection('contacts').add({
+        // Add data to Realtime Database
+        await db.ref('contacts').push({
           name: name,
           email: email,
           message: message,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          timestamp: Date.now()
         });
         
-        // Success - reset form and show success message
+        // Success - reset form and show popup
         contactForm.reset();
-        submitButton.value = 'Message Sent!';
         
-        // Reset button text after 3 seconds
-        setTimeout(() => {
-          submitButton.value = originalValue;
-          submitButton.disabled = false;
-        }, 3000);
+        // Show the "sent" popup with fade in/out
+        const popup = document.getElementById('sent-popup');
+        if (popup) {
+          popup.classList.add('show');
+          setTimeout(() => {
+            popup.classList.remove('show');
+          }, 2000);
+        }
+        
+        // Re-enable button
+        submitButton.value = originalValue;
+        submitButton.disabled = false;
         
       } catch (error) {
         console.error('Error submitting form:', error);
