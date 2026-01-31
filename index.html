@@ -7,6 +7,10 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+		<!-- Firebase SDK -->
+		<script defer src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+		<script defer src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+		<script defer src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -107,7 +111,7 @@
 					</header>
 					<div class="contact-wrapper" style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: flex-start;">
 						<div class="box" style="flex: 1; min-width: 300px;">
-							<form method="post" action="#">
+							<form id="contact-form" method="post" action="#">
 								<div class="fields">
 									<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
 									<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
@@ -158,6 +162,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/mobile-parallax.js"></script>
+			<script src="assets/js/firebase.js"></script>
 
 	</body>
 
