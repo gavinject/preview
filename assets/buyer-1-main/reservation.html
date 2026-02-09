@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Reservation Form</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,600;0,700;1,200;1,700&display=swap" rel="stylesheet">
+            
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/vegas.min.css" rel="stylesheet">
+
+        <link href="css/tooplate-barista.css" rel="stylesheet">
+<!--
+
+Tooplate 2137 Barista
+
+https://www.tooplate.com/view/2137-barista-cafe
+
+Bootstrap 5 HTML CSS Template
+
+-->
+    </head>
+    
+    <body class="reservation-page">
+                
+            <main>
+                <nav class="navbar navbar-expand-lg">                
+                    <div class="container">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/coffee-beans.png" class="navbar-brand-image img-fluid" alt="Glen Gunk Gone">
+                            Glen Gunk Gone
+                        </a>
+        
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+        
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-lg-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#section_1">Home</a>
+                                </li>
+        
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#section_2">About us</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-nowrap" href="index.html#section_3">&nbsp;(&nbsp; &nbsp; 33% off services&nbsp; &nbsp;)&nbsp;</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#section_4">Testimonials</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#section_5">Contact</a>
+                                </li>
+                            </ul>
+
+                            <div class="ms-lg-3">
+                                <a class="btn custom-btn custom-border-btn" href="reservation.html">
+                                    Get a free quote!<i class="bi-arrow-up-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                
+
+                <section class="booking-section section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="booking-form-wrap">
+                                <div class="row">
+                                    <div class="col-lg-7 col-12 p-0">
+                                        <form id="reservation-form" class="custom-form booking-form" role="form">
+                                            <div class="text-center mb-4 pb-lg-2">
+                                                <em class="text-white">Fill out the reservation form</em>
+
+                                                <h2 class="text-white">Make a Reservation</h2>
+                                            </div>
+
+                                            <div class="booking-form-body">
+                                                <!-- Name Section -->
+                                                <fieldset class="mb-4">
+                                                    <legend class="text-white mb-3">Name*</legend>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-12 mb-3">
+                                                            <label for="first-name" class="form-label text-white">First Name*</label>
+                                                            <input type="text" name="first-name" id="first-name" class="form-control" placeholder="First Name" required>
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-3">
+                                                            <label for="last-name" class="form-label text-white">Last Name*</label>
+                                                            <input type="text" name="last-name" id="last-name" class="form-control" placeholder="Last Name" required>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+
+                                                <!-- Email Section -->
+                                                <div class="mb-4">
+                                                    <label for="email" class="form-label text-white">Email*</label>
+                                                    <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com" required>
+                                                </div>
+
+                                                <!-- Phone Number Section -->
+                                                <div class="mb-4">
+                                                    <label for="phone" class="form-label text-white">Phone Number*</label>
+                                                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="(000) 000-0000" required>
+                                                    <small class="form-text text-white-50">Please enter a valid phone number.</small>
+                                                </div>
+
+                                                <!-- Address Section -->
+                                                <fieldset class="mb-4">
+                                                    <legend class="text-white mb-3">Address*</legend>
+                                                    <div class="row">
+                                                        <div class="col-12 mb-3">
+                                                            <label for="street-address" class="form-label text-white">Street Address*</label>
+                                                            <input type="text" name="street-address" id="street-address" class="form-control" placeholder="Street Address" required>
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-3">
+                                                            <label for="city" class="form-label text-white">City*</label>
+                                                            <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-3">
+                                                            <label for="state" class="form-label text-white">State / Province</label>
+                                                            <input type="text" name="state" id="state" class="form-control" placeholder="State / Province">
+                                                        </div>
+                                                        <div class="col-lg-6 col-12 mb-3">
+                                                            <label for="postal-code" class="form-label text-white">Postal / Zip Code</label>
+                                                            <input type="text" name="postal-code" id="postal-code" class="form-control" placeholder="Postal / Zip Code">
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+
+                                                <!-- Cleaning Areas Section -->
+                                                <fieldset class="mb-4">
+                                                    <legend class="text-white mb-3">Select the services you need*</legend>
+
+                                                    <!-- Flat Fee Services Section -->
+                                                    <div class="service-section mb-4">
+                                                        <h5 class="text-white mb-3" style="border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px;">Get Today – Flat Fees</h5>
+                                                        
+                                                        <!-- Trash Can -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-12 col-sm-8 mb-2 mb-sm-0">
+                                                                    <strong class="text-white">Trash Can</strong> — <span class="text-warning">$13.40</span><span class="text-white-50"> / each</span>
+                                                                    <small class="text-white-50 d-block mt-1">Full interior and exterior wash</small>
+                                                                </div>
+                                                                <div class="col-12 col-sm-4 text-sm-end">
+                                                                    <div class="quantity-counter d-inline-flex align-items-center">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="decrease" data-service="Trash Can" aria-label="Decrease Trash Can quantity">−</button>
+                                                                        <input type="number" class="form-control form-control-sm text-center mx-2 qty-input" id="qty-trash-can" data-service="Trash Can" value="0" min="0" readonly style="width: 50px; background-color: rgba(255,255,255,0.9); color: #000;" aria-label="Trash Can quantity">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="increase" data-service="Trash Can" aria-label="Increase Trash Can quantity">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check ms-0 mt-2">
+                                                                <input type="checkbox" name="flat-fee-addons[]" id="cleaning-trash-can-deodorizing" class="form-check-input" value="Trash Can - Deodorizing Add-on">
+                                                                <label for="cleaning-trash-can-deodorizing" class="form-check-label text-white-50">
+                                                                    Add Trash Can Deodorizing (+$5)
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Mailbox -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-12 col-sm-8 mb-2 mb-sm-0">
+                                                                    <strong class="text-white">Mailbox</strong> — <span class="text-warning">$10.05</span><span class="text-white-50"> / each</span>
+                                                                    <small class="text-white-50 d-block mt-1">Exterior cleaning</small>
+                                                                </div>
+                                                                <div class="col-12 col-sm-4 text-sm-end">
+                                                                    <div class="quantity-counter d-inline-flex align-items-center">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="decrease" data-service="Mailbox" aria-label="Decrease Mailbox quantity">−</button>
+                                                                        <input type="number" class="form-control form-control-sm text-center mx-2 qty-input" id="qty-mailbox" data-service="Mailbox" value="0" min="0" readonly style="width: 50px; background-color: rgba(255,255,255,0.9); color: #000;" aria-label="Mailbox quantity">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="increase" data-service="Mailbox" aria-label="Increase Mailbox quantity">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Outdoor Furniture -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-12 col-sm-8 mb-2 mb-sm-0">
+                                                                    <strong class="text-white">Outdoor Furniture</strong> — <span class="text-warning">$13.40</span><span class="text-white-50"> / each</span>
+                                                                    <small class="text-white-50 d-block mt-1">Plastic, metal, wood. Removes dirt, algae, and buildup</small>
+                                                                </div>
+                                                                <div class="col-12 col-sm-4 text-sm-end">
+                                                                    <div class="quantity-counter d-inline-flex align-items-center">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="decrease" data-service="Outdoor Furniture" aria-label="Decrease Outdoor Furniture quantity">−</button>
+                                                                        <input type="number" class="form-control form-control-sm text-center mx-2 qty-input" id="qty-outdoor-furniture" data-service="Outdoor Furniture" value="0" min="0" readonly style="width: 50px; background-color: rgba(255,255,255,0.9); color: #000;" aria-label="Outdoor Furniture quantity">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="increase" data-service="Outdoor Furniture" aria-label="Increase Outdoor Furniture quantity">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Garage Door -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-12 col-sm-8 mb-2 mb-sm-0">
+                                                                    <strong class="text-white">Garage Door</strong> — <span class="text-warning">$10.05</span><span class="text-white-50"> / each</span>
+                                                                    <small class="text-white-50 d-block mt-1">Exterior only. Removes dirt and stains</small>
+                                                                </div>
+                                                                <div class="col-12 col-sm-4 text-sm-end">
+                                                                    <div class="quantity-counter d-inline-flex align-items-center">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="decrease" data-service="Garage Door" aria-label="Decrease Garage Door quantity">−</button>
+                                                                        <input type="number" class="form-control form-control-sm text-center mx-2 qty-input" id="qty-garage-door" data-service="Garage Door" value="0" min="0" readonly style="width: 50px; background-color: rgba(255,255,255,0.9); color: #000;" aria-label="Garage Door quantity">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="increase" data-service="Garage Door" aria-label="Increase Garage Door quantity">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- AC Condenser -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-12 col-sm-8 mb-2 mb-sm-0">
+                                                                    <strong class="text-white">AC Condenser</strong> — <span class="text-warning">$10.05</span><span class="text-white-50"> / each</span>
+                                                                    <small class="text-white-50 d-block mt-1">Light-pressure exterior rinse only. No disassembly</small>
+                                                                </div>
+                                                                <div class="col-12 col-sm-4 text-sm-end">
+                                                                    <div class="quantity-counter d-inline-flex align-items-center">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="decrease" data-service="AC Condenser" aria-label="Decrease AC Condenser quantity">−</button>
+                                                                        <input type="number" class="form-control form-control-sm text-center mx-2 qty-input" id="qty-ac-condenser" data-service="AC Condenser" value="0" min="0" readonly style="width: 50px; background-color: rgba(255,255,255,0.9); color: #000;" aria-label="AC Condenser quantity">
+                                                                        <button type="button" class="btn btn-outline-light btn-sm qty-btn" data-action="increase" data-service="AC Condenser" aria-label="Increase AC Condenser quantity">+</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Per Square Foot Services Section -->
+                                                    <div class="service-section mb-4">
+                                                        <h5 class="text-white mb-3" style="border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px;">Get a Quote – Per Square Foot</h5>
+                                                        
+                                                        <!-- Driveway / Sidewalk -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="cleaning-areas[]" id="cleaning-driveway-sidewalk" class="form-check-input" value="Driveway / Sidewalk">
+                                                                <label for="cleaning-driveway-sidewalk" class="form-check-label text-white">
+                                                                    <strong>Driveway / Sidewalk</strong> — <span class="text-warning">$0.40 / sq ft</span>
+                                                                </label>
+                                                            </div>
+                                                            <small class="text-white-50 d-block ms-4 mt-1">Concrete or asphalt</small>
+                                                        </div>
+
+                                                        <!-- House Siding -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="cleaning-areas[]" id="cleaning-house-siding" class="form-check-input" value="House Siding">
+                                                                <label for="cleaning-house-siding" class="form-check-label text-white">
+                                                                    <strong>House Siding</strong> — <span class="text-warning">$0.50 / sq ft</span>
+                                                                </label>
+                                                            </div>
+                                                            <small class="text-white-50 d-block ms-4 mt-1">Exterior walls of home</small>
+                                                        </div>
+
+                                                        <!-- Deck & Patio -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="cleaning-areas[]" id="cleaning-deck-patio" class="form-check-input" value="Deck & Patio">
+                                                                <label for="cleaning-deck-patio" class="form-check-label text-white">
+                                                                    <strong>Deck & Patio</strong> — <span class="text-warning">$0.40 / sq ft</span>
+                                                                </label>
+                                                            </div>
+                                                            <small class="text-white-50 d-block ms-4 mt-1">Wood or composite</small>
+                                                        </div>
+
+                                                        <!-- Roof Soft Wash -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="cleaning-areas[]" id="cleaning-roof-soft-wash" class="form-check-input" value="Roof Soft Wash">
+                                                                <label for="cleaning-roof-soft-wash" class="form-check-label text-white">
+                                                                    <strong>Roof Soft Wash</strong> — <span class="text-warning">$0.60 / sq ft</span>
+                                                                </label>
+                                                            </div>
+                                                            <small class="text-white-50 d-block ms-4 mt-1">Bleach soft wash</small>
+                                                        </div>
+
+                                                        <!-- Gutters -->
+                                                        <div class="service-card mb-3 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1);">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="cleaning-areas[]" id="cleaning-gutters" class="form-check-input" value="Gutters">
+                                                                <label for="cleaning-gutters" class="form-check-label text-white">
+                                                                    <strong>Gutters</strong> — <span class="text-warning">$1.50 / linear ft</span>
+                                                                </label>
+                                                            </div>
+                                                            <small class="text-white-50 d-block ms-4 mt-1">Exterior rinse only</small>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+
+                                                <!-- Membership Offer Section -->
+                                                <div class="mb-4 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.15);">
+                                                    <p class="text-white mb-3"><strong>Are you interested in saving up to 40% with our Membership?</strong> Starting at just $39 per month, we will make the exterior of your home shine with regular service throughout the year!</p>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" name="membership-interest" id="membership-interest" class="form-check-input" value="yes">
+                                                        <label for="membership-interest" class="form-check-label text-white">Yes, I'm interested in the Membership offer</label>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Message Section -->
+                                                <div class="mb-4">
+                                                    <label for="message" class="form-label text-white">Message (optional)</label>
+                                                    <textarea name="message" id="message" rows="4" class="form-control" placeholder="Message"></textarea>
+                                                </div>
+
+                                                <!-- Submit Button -->
+                                                <div class="col-lg-4 col-md-10 col-8 mx-auto mt-4">
+                                                    <button type="submit" class="form-control">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-5 col-12 p-0">
+                                        <div class="booking-form-image-wrap">
+                                            
+                                            <img src="images/barman-with-fruits.jpg" class="booking-form-image img-fluid" alt="">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-4 col-12 me-auto">
+                                <em class="text-white d-block mb-4">Where to find us?</em>
+
+                                <strong class="text-white">
+                                    <i class="bi-geo-alt me-2"></i>
+                                    Bandra West, Mumbai, Maharashtra 400050, India
+                                </strong>
+
+                                <ul class="social-icon mt-4">
+                                    <li class="social-icon-item">
+                                        <a href="#" class="social-icon-link bi-facebook">
+                                        </a>
+                                    </li>
+        
+                                    <li class="social-icon-item">
+                                        <a href="https://x.com/minthu" target="_new" class="social-icon-link bi-twitter">
+                                        </a>
+                                    </li>
+
+                                    <li class="social-icon-item">
+                                        <a href="#" class="social-icon-link bi-whatsapp">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-3 col-12 mt-4 mb-3 mt-lg-0 mb-lg-0">
+                                <em class="text-white d-block mb-4">Contact</em>
+
+                                <p class="d-flex mb-1">
+                                    <strong class="me-2">Phone:</strong>
+                                    <a href="tel: 305-240-9671" class="site-footer-link">
+                                        (65) 
+                                        305 2409 671
+                                    </a>
+                                </p>
+
+                                <p class="d-flex">
+                                    <strong class="me-2">Email:</strong>
+
+                                    <a href="mailto:info@yourgmail.com" class="site-footer-link">
+                                        hello@barista.co
+                                    </a>
+                                </p>
+                            </div>
+
+
+                            <div class="col-lg-5 col-12">
+                                <em class="text-white d-block mb-4">Opening Hours.</em>
+
+                                <ul class="opening-hours-list">
+                                    <li class="d-flex">
+                                        Monday - Friday
+                                        <span class="underline"></span>
+
+                                        <strong>9:00 - 18:00</strong>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        Saturday
+                                        <span class="underline"></span>
+
+                                        <strong>11:00 - 16:30</strong>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        Sunday
+                                        <span class="underline"></span>
+
+                                        <strong>Closed</strong>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-8 col-12 mt-4">
+                                <p class="copyright-text mb-0">Copyright © Glen Gunk Gone 2048 
+                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                            </div>
+
+                    </div>
+                </footer>
+            </main>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/vegas.min.js"></script>
+        <script src="js/custom.js"></script>
+
+        <!-- Quantity Counter Functionality -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize quantity counter functionality
+                const qtyButtons = document.querySelectorAll('.qty-btn');
+                qtyButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const service = this.dataset.service;
+                        const action = this.dataset.action;
+                        const input = document.querySelector('.qty-input[data-service="' + service + '"]');
+                        let currentValue = parseInt(input.value) || 0;
+
+                        if (action === 'increase') {
+                            currentValue++;
+                        } else if (action === 'decrease' && currentValue > 0) {
+                            currentValue--;
+                        }
+
+                        input.value = currentValue;
+                    });
+                });
+            });
+        </script>
+  
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+            import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyC8zxKyDmya4EEAEcV_2Pf-d80ALuRXJX8",
+                authDomain: "dfrat-5108f.firebaseapp.com",
+                projectId: "dfrat-5108f",
+                storageBucket: "dfrat-5108f.firebasestorage.app",
+                messagingSenderId: "299949224633",
+                appId: "1:299949224633:web:bfecb35463d7fe0e5ea168",
+                measurementId: "G-0M93PQY98B"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const db = getFirestore(app);
+
+            // Debug: Verify Firebase initialization (shows boolean for production safety)
+            console.log('Firebase initialized:', !!app);
+            console.log('Firestore db available:', !!db);
+
+            // Wait for DOM to be fully loaded before attaching event handlers
+            // Note: Module scripts are deferred, so DOM may already be loaded
+            function initForm() {
+                // Form submission handler - use ID selector for more reliable selection
+                const form = document.getElementById('reservation-form');
+
+                // Debug: Check if form is found (shows boolean for production safety)
+                console.log('Form found:', !!form);
+
+                if (form) {
+                    form.addEventListener('submit', async function(e) {
+                        console.log('Form submitted!');
+                        e.preventDefault();
+
+                        // Get form values
+                        const firstName = document.getElementById('first-name').value.trim();
+                        const lastName = document.getElementById('last-name').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const phone = document.getElementById('phone').value.trim();
+                        const street = document.getElementById('street-address').value.trim();
+                        const city = document.getElementById('city').value.trim();
+                        const state = document.getElementById('state').value.trim();
+                        const postalCode = document.getElementById('postal-code').value.trim();
+                        const message = document.getElementById('message').value.trim();
+                        const membershipInterest = document.getElementById('membership-interest').checked;
+
+                        // Get flat fee items with quantities > 0
+                        const flatFeeItems = {};
+                        const qtyInputs = document.querySelectorAll('.qty-input');
+                        qtyInputs.forEach(input => {
+                            const qty = parseInt(input.value) || 0;
+                            if (qty > 0) {
+                                flatFeeItems[input.dataset.service] = qty;
+                            }
+                        });
+
+                        // Get flat fee add-ons (like deodorizing)
+                        const flatFeeAddonCheckboxes = document.querySelectorAll('input[name="flat-fee-addons[]"]:checked');
+                        flatFeeAddonCheckboxes.forEach(cb => {
+                            flatFeeItems[cb.value] = 1;
+                        });
+
+                        // Get selected Per Square Foot cleaning areas (checkboxes)
+                        const cleaningAreaCheckboxes = document.querySelectorAll('input[name="cleaning-areas[]"]:checked');
+                        const cleaningAreas = Array.from(cleaningAreaCheckboxes).map(cb => cb.value);
+
+                        // Validate required fields
+                        if (!firstName) {
+                            alert('Please enter your first name.');
+                            document.getElementById('first-name').focus();
+                            return;
+                        }
+                        if (!lastName) {
+                            alert('Please enter your last name.');
+                            document.getElementById('last-name').focus();
+                            return;
+                        }
+                        if (!email) {
+                            alert('Please enter your email address.');
+                            document.getElementById('email').focus();
+                            return;
+                        }
+                        if (!phone) {
+                            alert('Please enter your phone number.');
+                            document.getElementById('phone').focus();
+                            return;
+                        }
+                        if (!street) {
+                            alert('Please enter your street address.');
+                            document.getElementById('street-address').focus();
+                            return;
+                        }
+                        if (!city) {
+                            alert('Please enter your city.');
+                            document.getElementById('city').focus();
+                            return;
+                        }
+                        // Check if at least one service is selected (either flat fee or per sq ft)
+                        const hasFlatFeeItems = Object.keys(flatFeeItems).length > 0;
+                        const hasCleaningAreas = cleaningAreas.length > 0;
+                        if (!hasFlatFeeItems && !hasCleaningAreas) {
+                            alert('Please select at least one service.');
+                            document.getElementById('qty-trash-can').focus();
+                            return;
+                        }
+
+                        // Prepare data for Firestore
+                        const reservationData = {
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            phone: phone,
+                            street: street,
+                            city: city,
+                            state: state,
+                            postalCode: postalCode,
+                            flatFeeItems: flatFeeItems,
+                            cleaningAreas: cleaningAreas,
+                            membershipInterest: membershipInterest,
+                            message: message,
+                            createdAt: serverTimestamp()
+                        };
+
+                        console.log('Submitting reservation data...');
+
+                        try {
+                            // Submit to Firestore
+                            const docRef = await addDoc(collection(db, 'reservations'), reservationData);
+                            console.log('Reservation submitted successfully with ID:', docRef.id);
+                            alert('Thank you! Your reservation has been submitted successfully.');
+                            form.reset();
+                            // Reset quantity counters to 0
+                            document.querySelectorAll('.qty-input').forEach(input => {
+                                input.value = 0;
+                            });
+                        } catch (error) {
+                            console.error('Error submitting reservation:', error.code || 'unknown_error', error.message || '');
+                            alert('There was an error submitting your reservation. Please try again.');
+                        }
+                    });
+                } else {
+                    console.error('Form not found! Check if the #reservation-form selector is correct.');
+                }
+            }
+
+            // Initialize form - handle both cases: DOM already loaded or still loading
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initForm);
+            } else {
+                initForm();
+            }
+        </script>
+    </body>
+</html>
+
